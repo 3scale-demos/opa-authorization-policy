@@ -5,7 +5,7 @@
   "description":
     ["This Policy integrates APICast with Open Policy Agent. ",
      "Allows APICast to enforce authorization decisions ",
-     "based on the defined policy in the Open Policy Agent server. ",
+     "based on the defined policy in the Open Policy Agent server. "],
      "version": "1.0.0",
   "configuration": {
     "definitions": {
