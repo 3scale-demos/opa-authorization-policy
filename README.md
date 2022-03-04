@@ -33,6 +33,6 @@ This Policy integrates APICast (3scale API Gateway) with  [Open Policy Agent](ht
  
  ## Example of OPA policy 
 - The below example shows using of rego policy that allows GET method to the course resource with JWT username claim equals to alice.
-      ![alt text](https://github.com/abdelhamidfg/opa-authorization-policy/blob/master/jwt-policy.jpg?raw=true)
+      ![alt text](https://github.com/abdelhamidfg/opa-authorization-policy/blob/main/jwt-policy.jpg?raw=true)
 
 
