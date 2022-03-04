@@ -26,7 +26,7 @@ This Policy integrates APICast (3scale API Gateway) with  [Open Policy Agent](ht
 ```
 
 ## How it works?
-![alt text](https://github.com/abdelhamidfg/opa-authorization-policy/blob/master/opa-flow.jpg?raw=true)
+![alt text](https://github.com/abdelhamidfg/opa-authorization-policy/blob/main/opa-flow.jpg?raw=true)
 - The policy intercepts the client request sending http request to OPA URL as configured in the policy. 
 - The policy expects the policy evaluation result in the boolean formate  ,example allowed response {"result": true}
 - The pollicy will allow/deny the client request based on the reponse of OPA allow API .
