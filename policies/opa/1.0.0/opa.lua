@@ -20,7 +20,7 @@ local function deny_request(error_msg)
     ngx.exit(ngx.status)
 end
 
-local function check_opa_authorization(opa_url, request_path)
+local function check_opa_authorization(opa_url, request_path,system_name)
     local is_authorized = false
     local ops = {}
     local query = {}
@@ -34,7 +34,10 @@ local function check_opa_authorization(opa_url, request_path)
             headers = headers or {},
             querystring = querystring or {},
             remote_addr = ngx.var.remote_addr,
-            request_id = ngx.var.request_id
+            request_id = ngx.var.request_id,
+            system_name=system_name,
+            host = ngx.var.host
+                
         }
     })
 
@@ -60,7 +63,9 @@ end
 function _M:access(context)
     local is_opa_authorized = false
     local request_path = context.original_request.path
-    is_opa_authorized = check_opa_authorization(self.opa_url, request_path)
+    local service = context.service or ngx.ctx.service or {}
+    local system_name=service.system_name or ""
+    is_opa_authorized = check_opa_authorization(self.opa_url, request_path,system_name)
     if not is_opa_authorized then
         return deny_request(self.error_message)
     end
