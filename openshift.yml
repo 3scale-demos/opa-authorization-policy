@@ -26,7 +26,7 @@ objects:
         kind: ImageStreamTag
         name: 'apicast-new-policies:${NEW_POLICY_RELEASE}'
     source:
-      contextDir: ABAC-policy
+      #contextDir: ABAC-policy
       git:
         uri: ${GIT_REPO}
         ref: 'master'
@@ -68,7 +68,7 @@ objects:
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies/keycloak_Authorizer
+              sourcePath: /opt/app-root/policies/opa
             # copy also installed dependencies to the policy folder, so they are vendored
             # - destinationDir: policies/example/0.1/resty/
             #   sourcePath: /opt/app-root/src/lua_modules/share/lua/5.1/resty/iputils.lua
@@ -94,11 +94,11 @@ objects:
 parameters:
 - name: AMP_RELEASE
   description: The destination tag of your AMP release (eg. 2.8)
-  value: '2.10'
+  value: '2.11'
 
 - name: CUSTOM_IS_TAG
   description: The version of the custom apicast imagestream pulled from the registry
-  value: '3scale2.10.0'
+  value: '3scale2.11.0'
 
 - name: NEW_POLICY_RELEASE
   description: The version of the policies
@@ -106,7 +106,7 @@ parameters:
 
 - name: GIT_REPO
   description: GIT REPO
-  value: 'https://github.com/abdelhamidfg/opa-Authorization-policy'
+  value: 'https://github.com/3scale-demos/opa-authorization-policy'
 
 - name: APICAST_CUSTOM_NAMESPACE
   description: 'where to find the custom policies'
