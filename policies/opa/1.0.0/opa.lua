@@ -33,6 +33,7 @@ local function check_opa_authorization(opa_url, request_path,system_name)
             path = request_path,
             headers = headers or {},
             querystring = querystring or {},
+            body=ngx.req.get_body_data(),   
             remote_addr = ngx.var.remote_addr,
             request_id = ngx.var.request_id,
             system_name=system_name,
